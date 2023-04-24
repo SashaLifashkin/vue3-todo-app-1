@@ -3,6 +3,7 @@ import * as todosApi from './api/todos';
 import StatusFilter from './components/StatusFilter.vue';
 import TodoItem from './components/TodoItem.vue';
 import Message from './components/Message.vue';
+import { reactive } from 'vue';
 
 export default {
   components: {
@@ -39,6 +40,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.todos)
     todosApi.getTodos()
       .then(({ data }) => this.todos = data)
       .catch(() => {
